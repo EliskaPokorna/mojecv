@@ -226,6 +226,11 @@ footer {
   }
 }
 
+#hero-heading,
+#hero-text {
+  visibility: hidden;
+}
+
 #animated-subtext {
   opacity: 0;
 }

@@ -30,32 +30,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* Animace načítání textu */
 document.addEventListener("DOMContentLoaded", () => {
-  const heroHeading = document.getElementById("hero-heading");
-  const heroText = document.getElementById("hero-text");
+  setTimeout(() => {
+    const heroHeading = document.getElementById("hero-heading");
+    const heroText = document.getElementById("hero-text");
 
-  const headingText = heroHeading.textContent;
-  const paragraphText = heroText.textContent;
-  heroHeading.textContent = "";
-  heroText.textContent = "";
+    heroHeading.style.visibility = "visible";
+    heroText.style.visibility = "visible";
 
-  // Funkce pro efekt psaní pro daný element a text
-  function typeWriter(element, text, speed, callback) {
-    let index = 0;
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, speed);
-      } else if (callback) {
-        callback();
+    const headingText = heroHeading.textContent;
+    const paragraphText = heroText.textContent;
+    heroHeading.textContent = "";
+    heroText.textContent = "";
+
+    function typeWriter(element, text, speed, callback) {
+      let index = 0;
+      function type() {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        } else if (callback) {
+          callback();
+        }
       }
+      type();
     }
-    type();
-  }
 
-  typeWriter(heroHeading, headingText, 80, () => {
-    setTimeout(() => {
-      typeWriter(heroText, paragraphText, 40);
-    }, 300);
-  });
+    typeWriter(heroHeading, headingText, 80, () => {
+      setTimeout(() => {
+        typeWriter(heroText, paragraphText, 40);
+      }, 300);
+    });
+  }, 500);
 });
