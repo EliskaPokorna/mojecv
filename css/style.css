@@ -1,219 +1,52 @@
-@charset "UTF-8";
-/* Základní reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  background: radial-gradient(circle, rgba(12, 187, 175, 0.3) 0%, rgb(255, 255, 255) 100%);
-  color: #333;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* Odkazy */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Hero sekce */
-.hero {
-  position: relative;
-  height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-@media (min-width: 768px) {
-  .hero {
-    height: 100vh;
-  }
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(../images/header.jpg) no-repeat center center;
-  background-size: cover;
-  filter: brightness(0.7);
-  animation: zoomIn 5s ease forwards;
-}
-.hero-overlay::before {
-  content: "";
-  background: rgba(42, 181, 228, 0.6);
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-}
-
-@keyframes zoomIn {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  padding: 0 20px;
-}
-
-.hero-content h1 {
-  font-size: 1.8rem;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-@media (min-width: 768px) {
-  .hero-content h1 {
-    font-size: 4rem;
-  }
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  max-width: 700px;
-  margin: auto;
-}
-
-#animated-subtext {
-  opacity: 0;
-}
-
-/* Šipka pro scroll */
-.scroll-down {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  z-index: 2;
-  transition: transform 0.3s;
-}
-.scroll-down svg {
-  fill: #0cbbaf;
-}
-
-.scroll1 {
-  bottom: 50px;
-}
-
-.scroll-down:hover {
-  transform: translateX(-50%) translateY(5px);
-  fill: black;
-}
-.scroll-down:hover svg {
-  fill: rgb(223, 220, 18);
-}
-
-/* Obecné nastavení sekcí */
-section {
-  padding: 50px 20px 50px;
-  position: relative;
-}
-
-/* Kontejner pro obsah sekcí */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 50px 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-}
-@media (min-width: 768px) {
-  .container {
-    padding: 60px;
-  }
-}
-
-/* Nadpisy sekcí */
-section h2 {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-  color: #333;
-}
-@media (min-width: 768px) {
-  section h2 {
-    font-size: 2.8rem;
-  }
-}
-
-section h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: #0cbbaf;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-/* Blok "Co nabízím" */
-.offer-block {
+.experience-block {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 @media (min-width: 992px) {
-  .offer-block {
+  .experience-block {
     flex-direction: row;
     flex-wrap: wrap;
   }
 }
 
-.offer-block2 .offer-item,
-.offer-block3 .offer-item {
+@media (min-width: 992px) {
+  .experience-item {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+.tools-block .tools-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   flex: 1 1 100%;
   max-width: 100%;
   font-size: 18px;
 }
 @media (min-width: 768px) {
-  .offer-block2 .offer-item,
-  .offer-block3 .offer-item {
+  .tools-block .tools-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-}
-
-.offer-block2 .offer-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-@media (min-width: 768px) {
-  .offer-block2 .offer-item {
     flex-direction: row;
   }
 }
 
-.offer-block3 .offer-item {
+.ai-block .ai-item {
   display: flex;
   justify-content: center;
 }
-.offer-block3 .offer-item span {
+.ai-block .ai-item span {
   text-align: center;
   max-width: 800px;
 }
 
-.offer-item {
+.experience-item,
+.tools-item,
+.ai-item {
   background: #f9f9f9;
   padding: 20px 15px;
   border: 1px solid #eaeaea;
@@ -224,25 +57,30 @@ section h2::after {
   transition: opacity 0.6s ease-out, filter 0.6s ease-out;
 }
 @media (min-width: 992px) {
-  .offer-item {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
+  .experience-item,
+  .tools-item,
+  .ai-item {
     padding: 40px;
   }
 }
-.offer-item ul {
+.experience-item ul,
+.tools-item ul,
+.ai-item ul {
   padding-left: 15px;
 }
-.offer-item ul li::marker {
+.experience-item ul li::marker,
+.tools-item ul li::marker,
+.ai-item ul li::marker {
   color: #0cbbaf;
 }
 
-.offer-item.visible {
+.animation-block.visible {
   opacity: 1;
   filter: blur(0);
 }
 
-.offer-item h3 {
+.experience-item h3,
+.tools-item h3 {
   font-size: 1rem;
   margin-bottom: 20px;
   color: #333;
@@ -250,21 +88,23 @@ section h2::after {
   padding-bottom: 10px;
 }
 @media (min-width: 768px) {
-  .offer-item h3 {
+  .experience-item h3,
+  .tools-item h3 {
     font-size: 1.8rem;
   }
 }
 
-.offer-item p {
+.experience-item li,
+.tools-item span,
+.ai-item span {
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
 }
 
-/* Kontakt */
 #contact img {
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -294,7 +134,6 @@ section h2::after {
   text-decoration: none;
 }
 
-/* Footer */
 footer {
   background: #333;
   color: #aaa;
@@ -303,17 +142,182 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Responsivita */
-@media (max-width: 768px) {
+.hero {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/header.png) no-repeat center center;
+  background-size: cover;
+  filter: brightness(0.7);
+  animation: zoomIn 5s ease-in-out infinite alternate;
+}
+.hero-overlay::before {
+  content: "";
+  background: rgba(42, 181, 228, 0.6);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+.hero-content {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 2;
+  color: #fff;
+  padding: 0 20px;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .hero-content {
+    top: 40%;
+  }
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 4rem;
   }
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .hero-content p {
+    font-size: 1.5rem;
+  }
+}
+
+#animated-subtext {
+  opacity: 0;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+.scroll-down svg {
+  fill: #0cbbaf;
+}
+
+.scroll1 {
+  bottom: 20px;
+}
+@media (min-width: 768px) {
+  .scroll1 {
+    bottom: 50px;
+  }
+}
+
+.scroll-down:hover {
+  transform: translateX(-50%) translateY(5px);
+  fill: black;
+}
+.scroll-down:hover svg {
+  fill: rgb(223, 220, 18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: radial-gradient(circle, rgba(12, 187, 175, 0.3) 0%, rgb(255, 255, 255) 100%);
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  padding: 40px 15px;
+}
+@media (min-width: 768px) {
   section {
-    padding: 40px 20px 40px;
+    padding: 50px 20px;
   }
-  header nav a {
-    margin: 0 15px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 60px;
   }
+}
+
+section h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+@media (min-width: 768px) {
+  section h2 {
+    font-size: 2.8rem;
+  }
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #0cbbaf;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

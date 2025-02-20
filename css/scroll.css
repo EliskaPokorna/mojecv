@@ -1,0 +1,31 @@
+.scroll-down {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+.scroll-down svg {
+  fill: #0cbbaf;
+}
+
+.scroll1 {
+  bottom: 20px;
+}
+@media (min-width: 768px) {
+  .scroll1 {
+    bottom: 50px;
+  }
+}
+
+.scroll-down:hover {
+  transform: translateX(-50%) translateY(5px);
+  fill: black;
+}
+.scroll-down:hover svg {
+  fill: rgb(223, 220, 18);
+}
+
+/*# sourceMappingURL=scroll.css.map */

@@ -1,6 +1,6 @@
 /* Animace načítání bloků */
 document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('.offer-item');
+  const items = document.querySelectorAll('.animation-block');
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -29,23 +29,33 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* Animace načítání textu */
-document.addEventListener("DOMContentLoaded", function () {
-  function typeEffect(element, text, speed) {
-    let i = 0;
-    element.textContent = "";
-    element.style.opacity = 1;
-    let timer = setInterval(function () {
-      element.textContent += text.charAt(i);
-      i++;
-      if (i === text.length) {
-        clearInterval(timer);
+document.addEventListener("DOMContentLoaded", () => {
+  const heroHeading = document.getElementById("hero-heading");
+  const heroText = document.getElementById("hero-text");
+
+  const headingText = heroHeading.textContent;
+  const paragraphText = heroText.textContent;
+  heroHeading.textContent = "";
+  heroText.textContent = "";
+
+  // Funkce pro efekt psaní pro daný element a text
+  function typeWriter(element, text, speed, callback) {
+    let index = 0;
+    function type() {
+      if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, speed);
+      } else if (callback) {
+        callback();
       }
-    }, speed);
+    }
+    type();
   }
 
-  const subtextEl = document.getElementById("animated-subtext");
-  const subtextText = subtextEl.textContent;
-
-  typeEffect(subtextEl, subtextText, 50);
+  typeWriter(heroHeading, headingText, 80, () => {
+    setTimeout(() => {
+      typeWriter(heroText, paragraphText, 40);
+    }, 300);
+  });
 });
-
