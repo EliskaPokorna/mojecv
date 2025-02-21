@@ -33,7 +33,8 @@
   }
 }
 
-.ai-block .ai-item {
+.ai-block .ai-item,
+.object-block .object-item {
   display: flex;
   justify-content: center;
 
@@ -45,7 +46,8 @@
 
 .experience-item,
 .tools-item,
-.ai-item {
+.ai-item,
+.object-item {
   background: #f9f9f9;
   padding: 20px 15px;
   border: 1px solid #eaeaea;
@@ -90,7 +92,8 @@
 
 .experience-item li,
 .tools-item span,
-.ai-item span {
+.ai-item span,
+.object-item span {
   font-size: 1rem;
   color: #555;
   line-height: 1.5;

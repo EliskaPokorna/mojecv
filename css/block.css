@@ -35,18 +35,21 @@
   }
 }
 
-.ai-block .ai-item {
+.ai-block .ai-item,
+.object-block .object-item {
   display: flex;
   justify-content: center;
 }
-.ai-block .ai-item span {
+.ai-block .ai-item span,
+.object-block .object-item span {
   text-align: center;
   max-width: 800px;
 }
 
 .experience-item,
 .tools-item,
-.ai-item {
+.ai-item,
+.object-item {
   background: #f9f9f9;
   padding: 20px 15px;
   border: 1px solid #eaeaea;
@@ -59,18 +62,21 @@
 @media (min-width: 992px) {
   .experience-item,
   .tools-item,
-  .ai-item {
+  .ai-item,
+  .object-item {
     padding: 40px;
   }
 }
 .experience-item ul,
 .tools-item ul,
-.ai-item ul {
+.ai-item ul,
+.object-item ul {
   padding-left: 15px;
 }
 .experience-item ul li::marker,
 .tools-item ul li::marker,
-.ai-item ul li::marker {
+.ai-item ul li::marker,
+.object-item ul li::marker {
   color: #0cbbaf;
 }
 
@@ -96,7 +102,8 @@
 
 .experience-item li,
 .tools-item span,
-.ai-item span {
+.ai-item span,
+.object-item span {
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
